@@ -1,3 +1,1 @@
-1.Zrobic jakis projekt w PHP
-2.Uczyc się SQLa
-3.Zaczac treningi od 2.02
+["Zrobic jakis projekt w PHP","Uczyc się SQLa","Zaczac treningi od 2.02"]
