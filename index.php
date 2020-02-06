@@ -14,14 +14,16 @@ switch($comm)
 {
     case 'add':
         echo "Add TODO";
+        $tasks = read();
+        //add($tasks,$cont);
+        $tasks = save(add($tasks,$cont));
         break;
     case 'remove':
         echo "Remove TODO";
         break;
     case null:
-        echo "List";
-        $tasks = reading();
-        var_dump($tasks);
+        $tasks = read();
+        display($tasks);
         break;
     default:
         echo "Sorry,invalid command!";

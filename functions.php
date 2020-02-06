@@ -1,13 +1,33 @@
 <?php
- function reading() :array
+ function read() :array
  {
-     if (file_exists(FILENAME))
+     if (file_exists(FILENAME) && !(empty(file_get_contents(FILENAME))))
      {
-         $data = file_get_contents(FILENAME);
-         if ($data) {
-             return json_decode($data, true);
-         }
+         return json_decode(file_get_contents(FILENAME, true));
      }
      return [];
  }
-?>
+function display($tasks) :void
+{
+    echo "List" . PHP_EOL;
+    echo "---------------------------------";
+    foreach($tasks as $key => $value)
+    {
+     $key = $key + 1;
+     echo PHP_EOL . "{$key}.{$value}" . PHP_EOL;
+     }
+    $x = count($tasks);
+    echo "---------------------------------" . PHP_EOL . "All tasks: {$x}";
+}
+function add($tasks,$x)
+{
+    //array_push(array($tasks),$x);
+    $tasks[] = $x;
+    return $tasks;
+}
+function save($tasks)
+{
+    $data = json_encode($tasks);
+    $tasks = file_put_contents(FILENAME,$data);
+    return $tasks;
+}
