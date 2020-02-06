@@ -25,6 +25,13 @@ function add($tasks,$x)
     $tasks[] = $x;
     return $tasks;
 }
+function remove($tasks,$x)
+{
+    unset($tasks[$x-1]);
+    $tasks = array_values($tasks);
+    //$tasks = json_decode(file_get_contents(FILENAME, true));
+    return $tasks;
+}
 function save($tasks)
 {
     $data = json_encode($tasks);

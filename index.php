@@ -20,6 +20,9 @@ switch($comm)
         break;
     case 'remove':
         echo "Remove TODO";
+        $tasks = read();
+        $q = remove($tasks,$cont);
+        save($q);
         break;
     case null:
         $tasks = read();
